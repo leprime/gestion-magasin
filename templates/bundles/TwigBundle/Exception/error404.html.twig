@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/logo-ul.jpg') }}" />
+    <title>Erreur | 404</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ asset('css/lib/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ asset('css/helper.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/jquery.page.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+</head>
+
+<body class="fix-header fix-sidebar" style="font-size: 0.89em !important;">
+<!-- Main wrapper  -->
+<div id="main-wrapper">
+    <!-- Main wrapper  -->
+    <div class="error-page" id="wrapper">
+        <div class="error-box">
+            <div class="error-body text-center">
+                <h1>404</h1>
+                <h3 class="text-uppercase">Page introvable </h3>
+                <p class="text-muted m-t-30 m-b-30">Veuillez réssayer plus tard</p>
+                <a class="btn btn-info btn-rounded waves-effect waves-light m-b-40" href="{{ path('home') }}">Retour à la page d'accueil</a> </div>
+            <footer class="footer text-center">&copy; 2018 CIC/UL.</footer>
+        </div>
+    </div>
+
+</div>
+<!-- End Wrapper -->
+<!-- All Jquery -->
+<script src="{{ asset('js/lib/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src="{{ asset('js/lib/bootstrap/js/popper.min.js') }}"></script>
+<script src="{{ asset('js/lib/bootstrap/js/bootstrap.min.js') }}"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="{{ asset('js/jquery.slimscroll.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+.env
+var/
+vendor/
+.idea/
+node_modules/
+public/bundles/
+translations/
