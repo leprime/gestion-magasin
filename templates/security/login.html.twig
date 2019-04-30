@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login | Admin{% endblock %}
+
+{% block body %}
+    <!-- Main wrapper  -->
+    <div id="main-wrapper">
+
+        <div class="unix-login">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4">
+                        <div class="login-content card">
+                            <div class="login-form">
+                                <h4>Connexion</h4>
+                                {% if error %}
+                                    <div class="alert alert-danger" role="alert">
+                                        <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                    </div>
+                                {% endif %}
+                                <form role="form" action="" method="post" autocomplete="off">
+                                    <div class="form-group">
+                                        <input type="text" name="_username" placeholder="Nom d'utilisateur..." class="form-control" id="username">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="_password" class="form-control" placeholder="Mot de passe">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Se connecter</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

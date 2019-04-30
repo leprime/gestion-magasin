@@ -1,0 +1,7 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Admin | Nouveau utilisateur{% endblock %}
+{% block bread_crumb %}Ajouter un nouvel utilisateur{% endblock %}
+{% block body %}
+    {{ include('user/_form.html.twig') }}
+    <a href="{{ path('user_index') }}" class="btn btn-dark">Retour à la liste</a>
+{% endblock %}

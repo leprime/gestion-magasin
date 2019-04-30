@@ -1,0 +1,8 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Admin | Nouveau produit{% endblock %}
+{% block  bread_crumb %}Entrées de produits{% endblock %}
+{% block body %}
+    <h3>Ajouter un nouvel article</h3>
+    {{ include('product/_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Admin | Produits utilisés{% endblock %}
+{% block bread_crumb %}Liste des produits utilisés{% endblock %}
+{% block body %}
+    <div class="card">
+        <h4 class="card-title text-center">Nouvelle sortie</h4>
+        {{ include('output/_form.html.twig') }}
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Par catégories</h4>
+            <div class="table-responsive m-t-4">
+                <div id="example_wrapper" class="dataTables_wrapper">
+                    <div class="dataTables_length" id="example_length">
+                        <label>
+                            Afficher
+                            <select name="example_length" aria-controls="example">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select> lignes
+                        </label>
+                    </div>
+                    <div id="example_filter" class="dataTables_filter">
+                        <label>
+                            <input type="search" placeholder="Rechercher" aria-controls="example">
+                        </label>
+                    </div>
+                    <table id="example" class="table display table-bordered table-striped dataTable" role="grid" aria-describedby="example_info" style="width: 948px;">
+                        <thead>
+                        <tr role="row">
+                            <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 205.4px;" aria-sort="ascending">Code</th>
+                            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 320.4px;">Libellé</th>
+                            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 76.4px;">Prix</th>
+                            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 140.4px;">Quantité</th>
+                            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 112.4px;">Marque</th></tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th rowspan="1" colspan="1">Code</th>
+                            <th rowspan="1" colspan="1">Libellé</th>
+                            <th rowspan="1" colspan="1">Prix</th>
+                            <th rowspan="1" colspan="1">Quantité</th>
+                            <th rowspan="1" colspan="1">Marque</th></tr>
+                        </tfoot>
+                        <tbody>
+                        {% for c in categories %}
+                            <tr class="group">
+                                <td colspan="5" class="text-center">{{ c.name }}</td>
+                            </tr>
+                            {% for p in c.products %}
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1">{{ p.code }}</td>
+                                    <td class="">{{ p.name }}</td>
+                                    <td>{{ p.price }}</td>
+                                    <td>{{ p.quantity }}</td>
+                                    <td>{{ p.mark }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="5">Aucun produit</td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="5">Aucune catégorie</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="dataTables_paginate paging_simple_numbers" id="example_paginate">
+                        <a class="paginate_button previous disabled" aria-controls="example" data-dt-idx="0" tabindex="0" id="example_previous">Précédent</a>
+                        <span>
+                            <a class="paginate_button current" aria-controls="example" data-dt-idx="1" tabindex="0">1</a></span>
+                        <a class="paginate_button next disabled" aria-controls="example" data-dt-idx="2" tabindex="0" id="example_next">Suivant</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

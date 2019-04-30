@@ -19,8 +19,22 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    App\Controller\CustomExceptionController:
-        public: true
+
+    app.doctrine.hash_password_listener:
+        class: App\EventListener\HashPasswordListener
+        autowire: true
+        tags:
+            - { name: doctrine.event_subscriber }
+
+    App\Service\FileUploader:
         arguments:
-            $debug: '%kernel.debug%'
-            
+            $targetDirectory: '%image_directory%'
+
+    App\EventListener\ImageUploadListener:
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+
+    App\Form\ImageType:
+        arguments:
+            $imagePath: '%image_directory%'

@@ -1,0 +1,172 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Admin | Produits à utiliser{% endblock %}
+{% block bread_crumb %}Ajouter un(des) produit(s) utilisables{% endblock %}
+{% block body %}
+    <div class="card">
+        <div class="card-body">
+            <h6 class="card-subtitle">Veuillez cocher/sélectionner un ou plusieurs articles afin de les ajouter à la liste des articles utilisés</h6>
+            <div class="table-responsive m-t-4">
+                <div id="example_wrapper" class="dataTables_wrapper">
+                    <div class="dataTables_length" id="example_length">
+                        <label>
+                            Afficher
+                            <select name="example_length" aria-controls="example">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select> lignes
+                        </label>
+                    </div>
+                    <div id="example_filter" class="dataTables_filter">
+                        <label>
+                            <input type="search" placeholder="Rechercher" aria-controls="example">
+                            <a href="#" class="btn btn-primary btn-sm">
+                                <i class="fa fa-plus"></i>
+                                Ajouter un produit
+                            </a>
+                        </label>
+                    </div>
+                    <table id="example" class="table display table-bordered table-striped dataTable" role="grid" aria-describedby="example_info" style="width: 948px;">
+                        <thead>
+                        <tr role="row">
+                            <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 205.4px;" aria-sort="ascending">Name</th>
+                            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 320.4px;">Position</th>
+                            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 76.4px;">Age</th>
+                            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 140.4px;">Start date</th>
+                            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 112.4px;">Salary</th></tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th rowspan="1" colspan="1">Name</th>
+                            <th rowspan="1" colspan="1">Position</th>
+                            <th rowspan="1" colspan="1">Age</th>
+                            <th rowspan="1" colspan="1">Start date</th>
+                            <th rowspan="1" colspan="1">Salary</th></tr>
+                        </tfoot>
+                        <tbody>
+                        <tr class="group"><td colspan="5">Tokyo</td></tr><tr role="row" class="odd">
+                            <td class="sorting_1">Airi Satou</td>
+                            <td class="">Accountant</td>
+
+                            <td class="">33</td>
+                            <td>2008/11/28</td>
+                            <td class="">$162,700</td>
+                        </tr><tr class="group"><td colspan="5">London</td></tr><tr role="row" class="even">
+                            <td class="sorting_1">Bradley Greer</td>
+                            <td class="">Software Engineer</td>
+
+                            <td class="">41</td>
+                            <td>2012/10/13</td>
+                            <td class="">$132,000</td>
+                        </tr><tr class="group"><td colspan="5">New York</td></tr><tr role="row" class="odd">
+                            <td class="sorting_1">Brielle Williamson</td>
+                            <td class="">Integration Specialist</td>
+
+                            <td class="">61</td>
+                            <td>2012/12/02</td>
+                            <td class="">$372,000</td>
+                        </tr><tr class="group"><td colspan="5">Edinburgh</td></tr><tr role="row" class="even">
+                            <td class="sorting_1">Cedric Kelly</td>
+                            <td class="">Senior Javascript Developer</td>
+
+                            <td class="">22</td>
+                            <td>2012/03/29</td>
+                            <td class="">$433,060</td>
+                        </tr><tr class="group"><td colspan="5">San Francisco</td></tr><tr role="row" class="odd">
+                            <td class="sorting_1">Charde Marshall</td>
+                            <td class="">Regional Director</td>
+
+                            <td class="">36</td>
+                            <td>2008/10/16</td>
+                            <td class="">$470,600</td>
+                        </tr><tr role="row" class="even">
+                            <td class="sorting_1">Colleen Hurst</td>
+                            <td class="">Javascript Developer</td>
+
+                            <td class="">39</td>
+                            <td>2009/09/15</td>
+                            <td class="">$205,500</td>
+                        </tr><tr role="row" class="odd">
+                            <td class="sorting_1">Fiona Green</td>
+                            <td class="">Chief Operating Officer (COO)</td>
+
+                            <td class="">48</td>
+                            <td>2010/03/11</td>
+                            <td class="">$850,000</td>
+                        </tr><tr class="group"><td colspan="5">Tokyo</td></tr><tr role="row" class="even">
+                            <td class="sorting_1">Garrett Winters</td>
+                            <td class="">Accountant</td>
+
+                            <td class="">63</td>
+                            <td>2011/07/25</td>
+                            <td class="">$170,750</td>
+                        </tr><tr class="group"><td colspan="5">New York</td></tr><tr role="row" class="odd">
+                            <td class="sorting_1">Gloria Little</td>
+                            <td class="">Systems Administrator</td>
+
+                            <td class="">59</td>
+                            <td>2009/04/10</td>
+                            <td class="">$237,500</td>
+                        </tr><tr class="group"><td colspan="5">San Francisco</td></tr><tr role="row" class="even">
+                            <td class="sorting_1">Herrod Chandler</td>
+                            <td class="">Sales Assistant</td>
+
+                            <td class="">59</td>
+                            <td>2012/08/06</td>
+                            <td class="">$137,500</td>
+                        </tr><tr class="group"><td colspan="5">London</td></tr><tr role="row" class="odd">
+                            <td class="sorting_1">Jena Gaines</td>
+                            <td class="">Office Manager</td>
+
+                            <td class="">30</td>
+                            <td>2008/12/19</td>
+                            <td class="">$90,560</td>
+                        </tr><tr class="group"><td colspan="5">Singapore</td></tr><tr role="row" class="even">
+                            <td class="sorting_1">Jennifer Chang</td>
+                            <td class="">Regional Director</td>
+
+                            <td class="">28</td>
+                            <td>2010/11/14</td>
+                            <td class="">$357,650</td>
+                        </tr><tr class="group"><td colspan="5">London</td></tr><tr role="row" class="odd">
+                            <td class="sorting_1">Michael Silva</td>
+                            <td class="">Marketing Designer</td>
+
+                            <td class="">66</td>
+                            <td>2012/11/27</td>
+                            <td class="">$198,500</td>
+                        </tr><tr class="group"><td colspan="5">New York</td></tr><tr role="row" class="even">
+                            <td class="sorting_1">Paul Byrd</td>
+                            <td class="">Chief Financial Officer (CFO)</td>
+
+                            <td class="">64</td>
+                            <td>2010/06/09</td>
+                            <td class="">$725,000</td>
+                        </tr><tr class="group"><td colspan="5">Tokyo</td></tr><tr role="row" class="odd">
+                            <td class="sorting_1">Rhona Davidson</td>
+                            <td class="">Integration Specialist</td>
+
+                            <td class="">55</td>
+                            <td>2010/10/14</td>
+                            <td class="">$327,900</td>
+                        </tr><tr role="row" class="even">
+                            <td class="sorting_1">Shou Itou</td>
+                            <td class="">Regional Marketing</td>
+
+                            <td class="">20</td>
+                            <td>2011/08/14</td>
+                            <td class="">$163,000</td>
+                        </tr><tr class="group"><td colspan="5">London</td></tr><tr role="row" class="odd">
+                            <td class="sorting_1">Suki Burks</td>
+                            <td class="">Developer</td>
+
+                            <td class="">53</td>
+                            <td>2009/10/22</td>
+                            <td class="">$114,500</td>
+                        </tr></tbody>
+                    </table><div class="dataTables_info" id="example_info" role="status" aria-live="polite">Showing 1 to 17 of 17 entries</div><div class="dataTables_paginate paging_simple_numbers" id="example_paginate"><a class="paginate_button previous disabled" aria-controls="example" data-dt-idx="0" tabindex="0" id="example_previous">Previous</a><span><a class="paginate_button current" aria-controls="example" data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="example" data-dt-idx="2" tabindex="0" id="example_next">Next</a></div></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Admin | Nouvelle catégorie{% endblock %}
+{% block bread_crumb %}Créer une nouvelle catégorie {% endblock %}
+{% block body %}
+
+    {{ include('category/_form.html.twig') }}
+    <a href="{{ path('category_index') }}" class="btn btn-secondary btn-sm">Retour à la liste</a>
+{% endblock %}

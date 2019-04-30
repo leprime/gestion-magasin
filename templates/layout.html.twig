@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        {% block stylesheets %}
+            <!-- Bootstrap Core CSS -->
+            <link href="{{ asset('css/lib/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+            <!-- Custom CSS -->
+            <link href="{{ asset('css/helper.css') }}" rel="stylesheet">
+            <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        {% endblock %}
+    </head>
+    <body class="fix-header fix-sidebar">
+        <!-- Preloader - style you can find in spinners.css -->
+        <div class="preloader">
+            <svg class="circular" viewbox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" fill="none" r="20" stroke-miterlimit="10" stroke-width="2"/>
+            </svg>
+        </div>
+    <!-- Main wrapper  -->
+    <div id="main-wrapper">
+        <!-- header header  -->
+        {% include 'partials/header.html.twig' %}
+        <!-- End header header -->
+        <!-- Left Sidebar  -->
+        {% include 'partials/left-sidebar.html.twig' %}
+        <!-- End Left Sidebar  -->
+
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+            <!-- Bread crumb -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-primary">{% block  bread_crumb %}{% endblock %}</h3>
+                </div>
+            </div> <!-- End Bread crumb -->
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                {% block body %}{% endblock %}
+            </div><!-- End Container fluid  -->
+            <!-- footer -->
+            {# <footer class="footer">
+                © 2018 All rights reserved. Template designed by
+                <a href="https://colorlib.com">Colorlib</a>
+            </footer> <!-- End footer --> #}
+        </div><!-- End Page wrapper  -->
+    </div> 
+        <!-- All Jquery -->
+        <script src="{{ asset('js/lib/jquery/jquery.min.js') }}"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="{{ asset('js/lib/bootstrap/js/popper.min.js') }}"></script>
+        <script src="{{ asset('js/lib/bootstrap/js/bootstrap.min.js') }}"></script>
+        <!-- slimscrollbar scrollbar JavaScript -->
+        <script src="{{ asset('js/jquery.slimscroll.js') }}"></script>
+        <!--Menu sidebar -->
+        <script src="{{ asset('js/sidebarmenu.js') }}"></script>
+        <!--stickey kit -->
+        <script src="{{ asset('js/lib/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
+        <!--Custom JavaScript -->
+        <!-- Amchart -->
+        <script src="{{ asset('js/lib/morris-chart/raphael-min.js') }}"></script>
+        <script src="{{ asset('js/scripts.js') }}"></script>
+        <!-- scripit init-->
+        <script src="{{ asset('js/custom.min.js') }}"></script>
+        {% block javascripts %}
+        {% endblock %}
+    </body>
+</html>
+

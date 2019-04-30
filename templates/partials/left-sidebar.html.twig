@@ -1,0 +1,67 @@
+<!-- Left Sidebar  -->
+<div class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <li class="nav-devider"></li>
+                <li class="nav-label">Accueil</li>
+                <li>
+                    <a href="{{ path('home') }}">
+                        <i class="fa fa-tachometer"></i>
+                        <span class="hide-menu">Tableau de bord</span>
+                    </a>
+                </li>
+                <li class="nav-label">Produits</li>
+                <li>
+                    <a href="{{ path('product_new') }}">
+                        <i class="fa fa-indent"></i>
+                        <span class="hide-menu">Entrées</span>
+                    </a>
+                </li>
+                <li>
+                    <a aria-expanded="false" href="{{ path('outputs') }}">
+                        <i class="fa fa-outdent"></i>
+                        <span class="hide-menu">Sorties</span>
+                    </a>
+                </li>
+                {% if is_granted(expression('"ROLE_ADMIN" in roles')) %}
+                    <li class="nav-label">Catégories</li>
+                    <li>
+                        <a aria-expanded="false" href="{{ path('category_index') }}">
+                            <i class="fa fa-list-alt"></i>
+                            <span class="hide-menu">Toutes</span>
+                        </a>
+                    </li>
+                    <li class="nav-label">Gestion du stock</li>
+                    <li>
+                        <a aria-expanded="false" href="{{ path('product_index') }}">
+                            <i class="fa fa-archive"></i>
+                            <span class="hide-menu">
+                                Stock
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a aria-expanded="false" href="{{ path('inventory') }}">
+                            <i class="fa fa-list-ul"></i>
+                            <span class="hide-menu">Inventaire
+                                {# <span class="label label-rouded label-danger pull-right">6</span> #}
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-label">Compte</li>
+                    <li>
+                        <a aria-expanded="false" href="{{ path('user_index') }}">
+                            <i class="fa fa-users"></i>
+                            <span class="hide-menu">Gestion des utilisateurs</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div> <!-- End Sidebar scroll-->
+</div>
+<!-- End Left Sidebar  -->
