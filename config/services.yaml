@@ -1,5 +1,6 @@
 parameters:
     locale: 'en'
+    image_directory: '%kernel.project_dir%/public/images_uploaded/'
 
 services:
     _defaults:

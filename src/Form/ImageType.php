@@ -51,6 +51,7 @@ class ImageType extends FileType
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([
+            'mapped' => false,
             'required' => false
         ]);
     }

@@ -3,6 +3,47 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
+        {#<style>#}
+            {#.custom-file-input {#}
+                {#width: 0.1px !important;#}
+                {#height: 0.1px !important;#}
+                {#opacity: 0 !important;#}
+                {#overflow: hidden !important;#}
+                {#position: absolute !important;#}
+                {#z-index: -1 !important;#}
+            {#}#}
+
+            {#.custom-file-input, label[for="product_image"] {#}
+                {#font-size: 1.25em !important;#}
+                {#font-weight: 700 !important;#}
+                {#color: white !important;#}
+                {#background-color: black !important;#}
+                {#display: inline-block !important;#}
+            {#}#}
+
+            {#.custom-file-input:focus , label[for="product_image"],#}
+            {#.custom-file-input , label[for="product_image"]:hover {#}
+                {#background-color: red !important;#}
+            {#}#}
+            {#.custom-file-input , label[for="product_image"] * {#}
+                {#pointer-events: none;#}
+            {#}#}
+
+            {#.custom-file-input , label[for="product_image"] {#}
+                {#cursor: pointer !important; /* "hand" cursor */#}
+            {#}#}
+
+            {#.custom-file-input:focus , label[for="product_image"] {#}
+                {#outline: 1px dotted #000 !important;#}
+                {#outline: -webkit-focus-ring-color auto 5px !important;#}
+            {#}#}
+            {#.custom-file-input:focus + label,#}
+            {#.custom-file-input.has-focus + label {#}
+                {#outline: 1px dotted #000;#}
+                {#outline: -webkit-focus-ring-color auto 5px;#}
+            {#}#}
+
+        {#</style>#}
         {% block stylesheets %}
             <!-- Bootstrap Core CSS -->
             <link href="{{ asset('css/lib/bootstrap/bootstrap.min.css') }}" rel="stylesheet">

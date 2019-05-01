@@ -6,7 +6,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="image")
+ * @ORM\Table(name="images")
  */
 class Image
 {
@@ -56,7 +56,7 @@ class Image
     /**
      * @param string $file
      */
-    public function setFile($file)
+    public function setFile($file = null)
     {
         if ($file) {
             $this->file = $file;

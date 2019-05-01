@@ -38,14 +38,17 @@ class ProductType extends AbstractType
                 'class' => Category::class,
                 'placeholder' => 'Sélectionner la catégorie',
                 'choice_label' => 'name',
-                'mapped' => false,
+                'mapped' => true,
                 'required' => true
             ])
             ->add('service')
             ->add('refe_order', TextType::class, [
                 'label' => 'Ordre de référence'
             ])
-            ->add('image_url')
+            ->add('image', ImageType::class, array(
+                'label' => 'Image',
+                'mapped' => true
+            ))
             ->add('isExitPermit', ChoiceType::class, [
                 'label' => 'Sortie permise ?',
                 'choices' => ['Oui' => true, 'Non' => false],

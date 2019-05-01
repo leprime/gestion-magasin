@@ -50,7 +50,12 @@ class Product
     private $mark;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Output", mappedBy="produit")
+     * @ORM\OneToMany(
+     *     targetEntity="App\Entity\Output",
+     *     mappedBy="produit",
+     *     orphanRemoval=true,
+     *     cascade={"persist", "remove"}
+     * )
      * @ORM\OrderBy({"outputed_at": "DESC"})
      */
     private $outputs;
@@ -80,9 +85,11 @@ class Product
     private $refe_order;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $image_url;
+     * @var Image
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove", "merge"})
+     * @ORM\JoinColumn(name="cover_id", referencedColumnName="id", nullable=true)
+     **/
+    private $image;
 
     /**
      * @ORM\Column(type="boolean")
@@ -275,16 +282,20 @@ class Product
         return $this;
     }
 
-    public function getImageUrl(): ?string
+    /**
+     * @return Image
+     */
+    public function getImage(): ?Image
     {
-        return $this->image_url;
+        return $this->image;
     }
 
-    public function setImageUrl(string $image_url): self
+    /**
+     * @param Image $cover
+     */
+    public function setImage(Image $cover): void
     {
-        $this->image_url = $image_url;
-
-        return $this;
+        $this->image = $cover;
     }
 
     public function getIsExitPermit(): ?bool
@@ -310,4 +321,5 @@ class Product
 
         return $this;
     }
+
 }
