@@ -1,4 +1,63 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
+{{ form_start(form, {'attr': {'autocomplete': 'off'}}) }}
+
+<div class="row">
+    <div class="form-group col">
+        {{ form_label(form.image) }}
+        {{ form_widget(form.image) }}
+    </div>
+</div>
+
+    <div class="row">
+        <div class="form-group col">
+            {{ form_label(form.code) }}
+            {{ form_widget(form.code) }}
+        </div>
+        <div class="form-group col">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+        </div>
+        <div class="form-group col">
+            {{ form_label(form.mark) }}
+            {{ form_widget(form.mark) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col">
+            {{ form_label(form.price) }}
+            {{ form_widget(form.price) }}
+        </div>
+        <div class="form-group col">
+            {{ form_label(form.quantity) }}
+            {{ form_widget(form.quantity) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col">
+            {{ form_label(form.category) }}
+            {{ form_widget(form.category) }}
+        </div>
+        <div class="form-group col">
+            {{ form_label(form.service) }}
+            {{ form_widget(form.service) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col">
+            {{ form_label(form.refe_order) }}
+            {{ form_widget(form.refe_order) }}
+        </div>
+        <div class="form-group col">
+            {{ form_label(form.isExitPermit) }}
+            {{ form_widget(form.isExitPermit) }}
+        </div>
+        <div class="form-group col">
+            {{ form_label(form.isLendable) }}
+            {{ form_widget(form.isLendable) }}
+        </div>
+    </div>
+
     <button class="btn btn-primary">Enregistrer</button>
-{{ form_end(form) }}
+{{ form_end(form, { 'render_rest': false }) }}

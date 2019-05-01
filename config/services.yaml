@@ -27,6 +27,12 @@ services:
         tags:
             - { name: doctrine.event_subscriber }
 
+    app.doctrine.output_listener:
+        class: App\EventListener\OutputListener
+        autowire: true
+        tags:
+            - { name: doctrine.event_subscriber }
+
     App\Service\FileUploader:
         arguments:
             $targetDirectory: '%image_directory%'

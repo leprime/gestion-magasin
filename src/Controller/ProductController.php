@@ -62,9 +62,8 @@ class ProductController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($output);
-            dd($output);
             $entityManager->flush();
-
+            $this->addFlash('success', 'Produit ajouté à la sortie avec succès!');
             return $this->redirectToRoute('outputs');
         }
 

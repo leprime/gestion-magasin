@@ -17,6 +17,8 @@ class OutputController extends AbstractController
 {
     /**
      * @Route("/", name="output_index", methods={"GET"})
+     * @param OutputRepository $outputRepository
+     * @return Response
      */
     public function index(OutputRepository $outputRepository): Response
     {

@@ -4,6 +4,14 @@
 {% block body %}
     <div class="card">
         <h4 class="card-title text-center">Nouvelle sortie</h4>
+        {% for message in app.session.flashBag.get('success') %}
+            <div class="alert alert-success" role="alert" style="margin-top: 2%">
+                <button type="submit" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div>{{ message }}</div>
+            </div>
+        {% endfor %}
         {{ include('output/_form.html.twig') }}
     </div>
 
@@ -50,22 +58,29 @@
                             <tr class="group">
                                 <td colspan="5" class="text-center">{{ c.name }}</td>
                             </tr>
-                            {% for p in c.products %}
-                                <tr role="row" class="odd">
-                                    <td class="sorting_1">{{ p.code }}</td>
-                                    <td class="">{{ p.name }}</td>
-                                    <td>{{ p.price }}</td>
-                                    <td>{{ p.quantity }}</td>
-                                    <td>{{ p.mark }}</td>
-                                </tr>
+                            {% for p in c.products if p.isExitPermit %}
+                                {% for o in p.outputs %}
+                                    <tr role="row" class="odd">
+                                        <td class="sorting_1">{{ o.produit.code }}</td>
+                                        <td>{{ o.produit.name }}</td>
+                                        <td>{{ o.produit.price }}</td>
+                                        <td>{{ o.quantity }}</td>
+                                        <td>{{ o.outputedAt|date('Y-m-d H:i:s') }}</td>
+                                        {#<td>{{ o.produit.mark }}</td>#}
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="5" class="text-center">Aucun produit</td>
+                                    </tr>
+                                {% endfor %}
                             {% else %}
                                 <tr>
-                                    <td colspan="5">Aucun produit</td>
+                                    <td colspan="5" class="text-center">Aucun produit</td>
                                 </tr>
                             {% endfor %}
                         {% else %}
                             <tr>
-                                <td colspan="5">Aucune catégorie</td>
+                                <td colspan="5" class="text-center">Aucune catégorie</td>
                             </tr>
                         {% endfor %}
                         </tbody>

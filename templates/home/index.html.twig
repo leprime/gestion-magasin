@@ -7,14 +7,14 @@
         <div class="col-md-3">
             <div class="card p-30">
                 <div class="media">
-                    <div class="media-left meida media-middle">
+                    <div class="media-left media-middle">
                         <span>
-                            <i class="fa fa-usd f-s-40 color-primary"></i>
+                            <i class="fa fa-money f-s-40 color-primary"></i>
                         </span>
                     </div>
                     <div class="media-body media-text-right">
-                        <h2>568120</h2>
-                        <p class="m-b-0">Revenue total</p>
+                        <h2>{{ totalSortie }}</h2>
+                        <p class="m-b-0">Total sorties</p>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                         </span>
                     </div>
                     <div class="media-body media-text-right">
-                        <h2>1178</h2>
+                        <h2>{{ outputs }}</h2>
                         <p class="m-b-0">Sorties</p>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                         </span>
                     </div>
                     <div class="media-body media-text-right">
-                        <h2>25</h2>
+                        <h2>{{ nbProducts }}</h2>
                         <p class="m-b-0">Stock</p>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         </span>
                     </div>
                     <div class="media-body media-text-right">
-                        <h2>847</h2>
+                        <h2>{{ users }}</h2>
                         <p class="m-b-0">Utilisateurs</p>
                     </div>
                 </div>
@@ -70,8 +70,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-title">
-                    <h4>Recent Orders
-                    </h4>
+                    <h4>Récentes sorties de produits</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -79,82 +78,49 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Name</th>
-                                    <th>Product</th>
-                                    <th>quantity</th>
+                                    <th>Code</th>
+                                    <th>Libellé</th>
+                                    <th>Prix</th>
+                                    <th>Quantité</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                            {% for ro in recentOutputs %}
                                 <tr>
                                     <td>
                                         <div class="round-img">
-                                            <a href=""><img alt="" src="images/avatar/4.jpg"></a>
+                                            <a href="javascript:void(0)"><img alt="" src="{{ asset('images_uploaded/' ~ ro.produit.image.file) }}"></a>
                                         </div>
                                     </td>
-                                    <td>John Abraham</td>
+                                    <td>{{ ro.produit.code }}</td>
                                     <td>
-                                        <span>iBook</span>
+                                        <span>{{ ro.produit.name }}</span>
                                     </td>
                                     <td>
-                                        <span>456 pcs</span>
+                                        <span>{{ ro.produit.price }} F</span>
                                     </td>
                                     <td>
-                                        <span class="badge badge-success">Done</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="round-img">
-                                            <a href=""><img alt="" src="images/avatar/2.jpg"></a>
-                                        </div>
-                                    </td>
-                                    <td>John Abraham</td>
-                                    <td>
-                                        <span>iPhone</span>
+                                        <span>{{ ro.produit.quantity }}</span>
                                     </td>
                                     <td>
-                                        <span>456 pcs</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge badge-success">Done</span>
+                                        {% if ro.produit.isLendable %}
+                                            <span class="badge badge-success">Prêtable</span>
+                                        {% else %}
+                                            <span class="badge badge-danger">Non prêtable</span>
+                                        {% endif %}
+                                        {% if ro.produit.isExitPermit %}
+                                            <span class="badge badge-success">Sortir</span>
+                                        {% else %}
+                                            <span class="badge badge-danger">Non sortie</span>
+                                        {% endif %}
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="round-img">
-                                            <a href=""><img alt="" src="images/avatar/3.jpg"></a>
-                                        </div>
-                                    </td>
-                                    <td>John Abraham</td>
-                                    <td>
-                                        <span>iMac</span>
-                                    </td>
-                                    <td>
-                                        <span>456 pcs</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge badge-warning">Pending</span>
-                                    </td>
+                            {% else %}
+                                <tr class="group">
+                                    <td colspan="5" class="text-center">Aucun article récent</td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="round-img">
-                                            <a href=""><img alt="" src="images/avatar/4.jpg"></a>
-                                        </div>
-                                    </td>
-                                    <td>John Abraham</td>
-                                    <td>
-                                        <span>iBook</span>
-                                    </td>
-                                    <td>
-                                        <span>456 pcs</span>
-                                    </td>
-                                    <td>
-                                        <span class="badge badge-success">Done</span>
-                                    </td>
-                                </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>

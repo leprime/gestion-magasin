@@ -13,6 +13,7 @@ class FileUploader {
     {
         $this->targetDirectory = $targetDirectory;
     }
+
     public function upload(UploadedFile $file)
     {
         $filename = md5(uniqid()) . '.' . $file->guessExtension();

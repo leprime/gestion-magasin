@@ -21,7 +21,15 @@ class Output
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank()
-     *
+     * @Assert\Expression(
+     *     "this.getQuantity() < this.getProduit().getQuantity()",
+     *     message="Quantitté sortie trop élevée que le stock"
+     * )
+     * @Assert\GreaterThanOrEqual(message="Quantitté minimum 1", value=1)
+     * @Assert\Type(
+     *     type="integer",
+     *     message="The value {{ value }} is not a valid {{ type }}."
+     * )
      */
     private $quantity;
 
@@ -74,7 +82,6 @@ class Output
 
     public function setProduit(Product $produit): self
     {
-        dd($produit);
         $this->produit = $produit;
 
         return $this;

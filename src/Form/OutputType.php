@@ -20,10 +20,13 @@ class OutputType extends AbstractType
                 'class' => Product::class,
                 'placeholder' => 'Choisir le produit',
                 'choice_label' => 'name',
-                'choice_value' => function(Product $product = null){
-                    return $product ? $product->getId() : '';
+                'query_builder' => function(EntityRepository $er){
+                    return $er->createQueryBuilder('p')
+                        ->orderBy('p.name', 'ASC')
+                        ->where('p.isExitPermit = :isPermit')
+                        ->setParameter('isPermit', 1);
                 },
-                'mapped' => false,
+                'mapped' => true,
                 'required' => true
             ])
             ->add('quantity')

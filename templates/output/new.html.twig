@@ -4,7 +4,14 @@
 
 {% block body %}
     <h1>Create new Output</h1>
-
+    {% for message in app.session.flashBag.get('error') %}
+        <div class="alert alert-danger" role="alert" style="margin-top: 2%">
+            <button type="submit" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div>{{ message }}</div>
+        </div>
+    {% endfor %}
     {{ include('output/_form.html.twig') }}
 
     <a href="{{ path('output_index') }}">back to list</a>
